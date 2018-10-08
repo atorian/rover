@@ -41,6 +41,7 @@
     "no-await-in-loop": "off",
     "prefer-default-export": "off",
     "chai-expect/missing-assertion": 2,
-    "chai-expect/terminating-properties": 1
+    "chai-expect/terminating-properties": 1,
+    "import/prefer-default-export": "off"
   }
 }

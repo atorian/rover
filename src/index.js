@@ -5,6 +5,8 @@ import CliRoverPresenter from './infrastructure/CliRoverPresenter';
 import StringInputInterpreter from './infrastructure/StringInputInterpreter';
 
 export default class MissionControl {
+    presenter: CliRoverPresenter;
+
     interpreter: StringInputInterpreter;
 
     useCase: MissionUseCase;

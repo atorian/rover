@@ -1,4 +1,3 @@
-// @flow
 
 import { assert } from 'chai';
 import StringInputInterpreter from '../../src/infrastructure/StringInputInterpreter';

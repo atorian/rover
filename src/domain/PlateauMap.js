@@ -1,8 +1,8 @@
 // @flow
 
 
-import type { Direction } from './index';
-import { isSamePosition } from "./index";
+import type { Direction, Position } from './index';
+import { isSamePosition } from './index';
 
 export type MapSize = {
     width: number,

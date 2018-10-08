@@ -5,6 +5,7 @@ export type Position = {
     y: number,
 };
 
+
 export function isSamePosition(a: Position, b: Position) {
     return a.x === b.x && a.y === b.y;
 }

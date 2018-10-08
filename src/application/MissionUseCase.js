@@ -20,6 +20,8 @@ export type MissionUseCaseCommand = {
 }
 
 export default class MissionUseCase {
+    presenter: RoverPresenter;
+
     constructor(presenter: RoverPresenter) {
         this.presenter = presenter;
     }

@@ -1,3 +1,4 @@
+// @flow
 import Rover from '../domain/Rover';
 
 export interface RoverPresenter {

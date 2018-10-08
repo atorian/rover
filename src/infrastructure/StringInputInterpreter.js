@@ -1,7 +1,8 @@
 // @flow
 
 import type { MapSize } from '../domain/PlateauMap';
-import type { MissionUseCaseCommand } from '../application/MissionUseCase';
+import type { MissionUseCaseCommand, RoverOperation } from '../application/MissionUseCase';
+import type { Direction } from '../domain';
 
 function parseRoverInitialState(line) {
     const stateParams = line.split(' ');
@@ -10,11 +11,11 @@ function parseRoverInitialState(line) {
             x: parseInt(stateParams[0], 10),
             y: parseInt(stateParams[1], 10),
         },
-        direction: stateParams[2],
+        direction: ((stateParams[2]: any): Direction),
     };
 }
 
-function parseRoverSteps(line) {
+function parseRoverSteps(line): string[] {
     return line.split('');
 }
 
@@ -22,30 +23,28 @@ export default class StringInputInterpreter {
     interpret(input: string): MissionUseCaseCommand {
         const lines = input.split('\n').map(x => x.trim()).filter(s => s);
         const mapSizeParams = lines[0].split(' ');
-        const mapSize: MapSize = { width: 1 * mapSizeParams[0], height: 1 * mapSizeParams[1] };
+        const mapSize: MapSize = {
+            width: parseInt(mapSizeParams[0], 10),
+            height: parseInt(mapSizeParams[1], 10),
+        };
         const roverOperationsLines = lines.slice(1);
 
-        const operations = roverOperationsLines.reduce((ops, line, index) => {
-            const roverIndex = Math.floor(index / 2);
-            if (index % 2 === 0) {
-                return {
-                    ...ops,
-                    [roverIndex]: parseRoverInitialState(line),
+        // todo: looks awkward :( refactor me
+        const numRovers = Math.ceil(roverOperationsLines.length / 2);
+        const operations: RoverOperation[] = (new Array(numRovers)).fill(null)
+            .map((v, index) => {
+                const operation = {
+                    ...parseRoverInitialState(roverOperationsLines[index * 2]),
+                    steps: parseRoverSteps(roverOperationsLines[index * 2 + 1]),
                 };
-            }
-
-            return {
-                ...ops,
-                [roverIndex]: {
-                    ...ops[roverIndex],
-                    steps: parseRoverSteps(line),
-                },
-            };
-        }, {});
+                return (
+                    ((operation): any): RoverOperation
+                );
+            });
 
         return {
             mapSize,
-            operations: Object.values(operations),
+            operations,
         };
     }
 }

@@ -1,4 +1,3 @@
-// @flow
 import { assert } from 'chai';
 import Rover, { DIRECTIONS } from '../../src/domain/Rover';
 import PlateauMap from '../../src/domain/PlateauMap';

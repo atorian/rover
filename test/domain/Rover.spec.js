@@ -1,8 +1,7 @@
-// @flow
 import { assert } from 'chai';
 import { given } from 'mocha-testdata';
 import Rover, { DIRECTIONS } from '../../src/domain/Rover';
-import PlateauMap from '../../src/domain/Map';
+import PlateauMap from '../../src/domain/PlateauMap';
 
 describe('Rover', () => {
     given(

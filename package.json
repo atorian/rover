@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A simple project with a single failing test",
   "scripts": {
-    "lint": "eslint ./src",
+    "lint": "eslint --quiet ./src",
     "flow": "flow",
     "test": "mocha test/**/*spec.js",
     "start": "babel-node src/index.js"

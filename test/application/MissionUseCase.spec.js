@@ -1,5 +1,3 @@
-// @flow
-
 import { assert } from 'chai';
 import MissionUseCase from '../../src/application/MissionUseCase';
 
@@ -44,7 +42,7 @@ describe('MissionUseCase', () => {
             },
         };
         const useCase = new MissionUseCase(presenter);
-        useCase.execute({
+        const command = {
             mapSize: {
                 width: 3,
                 height: 3,
@@ -56,10 +54,8 @@ describe('MissionUseCase', () => {
                     steps: ['L', 'M'],
                 },
             ],
-        });
+        };
 
-        assert.deepEqual(presenter.output, [
-            JSON.stringify({ position: { x: 2, y: 1 }, direction: 'N' }),
-        ]);
+        assert.throws(() => useCase.execute(command));
     });
 });

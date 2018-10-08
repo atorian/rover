@@ -1,7 +1,7 @@
 // @flow
 
 import PlateauMap from './PlateauMap';
-import type { Direction } from './index';
+import type { Direction, Position } from './index';
 
 export const DIRECTIONS = {
     NORTH: 'N',
@@ -29,6 +29,7 @@ const MOVEMENTS: { [Direction]: Movement } = {
     E: { axis: 'x', value: 1 },
     W: { axis: 'x', value: -1 },
 };
+
 
 export default class Rover {
     position: Position;
