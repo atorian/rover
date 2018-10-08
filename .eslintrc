@@ -1,0 +1,46 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "airbnb-base",
+    "plugin:flowtype/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "codeFrame": false
+  },
+  "plugins": [
+    "import",
+    "chai-expect",
+    "flowtype"
+  ],
+  "env": {
+    "node": true,
+    "mocha": true
+  },
+  "globals": {
+    "expect": true
+  },
+  "rules": {
+    "max-len": [
+      "error",
+      120
+    ],
+    "indent": [
+      "error",
+      4
+    ],
+    "class-methods-use-this": [
+      "warn"
+    ],
+    "no-restricted-syntax": [
+      "error",
+      "WithStatement",
+      "BinaryExpression[operator='in']"
+    ],
+    "no-await-in-loop": "off",
+    "prefer-default-export": "off",
+    "chai-expect/missing-assertion": 2,
+    "chai-expect/terminating-properties": 1
+  }
+}

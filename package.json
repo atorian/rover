@@ -3,10 +3,31 @@
   "version": "1.0.0",
   "description": "A simple project with a single failing test",
   "scripts": {
-    "test": "mocha test/**/*spec.js"
+    "lint": "eslint ./src",
+    "flow": "flow",
+    "test": "mocha test/**/*spec.js",
+    "start": "babel-node src/index.js"
+
   },
   "dependencies": {
-    "chai": "^4.1.2",
-    "mocha": "^4.0.1"
+    "get-stdin": "^6.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "chai": "^4.2.0",
+    "eslint": "^5.6.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-chai-expect": "^1.1.1",
+    "eslint-plugin-flowtype": "^2.50.3",
+    "eslint-plugin-import": "^2.14.0",
+    "flow-bin": "^0.82.0",
+    "mocha": "^5.2.0",
+    "mocha-testdata": "^1.2.0"
   }
 }
